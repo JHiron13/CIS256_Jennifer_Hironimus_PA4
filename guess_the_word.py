@@ -35,3 +35,21 @@ def create_display(word, guessed_letters):
             display.append("_")
 
     return " ".join(display)
+
+def process_guess(word, guess, guessed_letters):
+    """Store a guess and return True if it appears in the word."""
+    guessed_letters.add(guess)
+
+    if guess in word:
+        return True
+
+    return False
+
+
+def word_is_complete(word, guessed_letters):
+    """Return True when every letter in the word has been guessed."""
+    for letter in word:
+        if letter not in guessed_letters:
+            return False
+
+    return True
